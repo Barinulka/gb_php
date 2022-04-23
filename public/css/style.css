@@ -1,0 +1,9 @@
+body {
+  min-width: 540px;
+}
+
+.content-block {
+  background: #fefefe;
+  padding: 20px 0;
+}
+.row .card {padding: 0 !important;}
