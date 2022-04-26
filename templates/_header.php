@@ -7,7 +7,7 @@
           <a class="nav-link" href="/">Главная</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/admin.php">Админка</a>
+          <a class="nav-link" href="/admin/admin.php">Админка</a>
         </li>
       </ul>
     </div>
