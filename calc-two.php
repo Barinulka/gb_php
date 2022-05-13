@@ -38,7 +38,7 @@
             border-radius: 8px;
             border: none;
             outline:none;
-            box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.7);
+            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.5);
             transition: all 0.5s ease 0s;
             background: none;
             cursor: pointer;
@@ -47,15 +47,15 @@
         }
        
         .input-field:hover {
-            box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.65);
         }
        
         .input-field:focus {
-            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1.0);
+            box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.75);
         }
 
         .input-field:active {
-            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1.0);
+            box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.75);
         }
     </style>
 </head>

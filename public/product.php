@@ -1,11 +1,13 @@
 <? 
     include '../functions/utls.php'; 
     include_once '../functions/goods.php';
+    include_once '../functions/comments.php';
 
     $good = array();
 
     if ($_GET['id']) {
         $good = getGoodByID($connect, $_GET['id']);
+        $reviews = getAllCommets($connect, $_GET['id']);
     }
 ?>
 
@@ -43,6 +45,39 @@
                     </div>
                 </div>
             <? endif; ?>
+
+            <div class="reviews">
+                <? if (!empty($reviews)) : ?>
+                    <h4 style="margin-bottom: 10px;">Отзывы</h4>
+                    <div class="rev_block">
+                        <? foreach ($reviews as $review) : ?>
+                            <div class="rev_elem">
+                                <div class="rev_name"><?= $review['name']; ?> <span><?= date("d.m.y", $review['date']); ?></span></div>
+                                <div class="rev_text"><?= $review['text']; ?></div>
+                            </div>
+                        <? endforeach; ?>
+                    </div>
+                <? endif; ?>
+            
+                <form class="review-form" method="POST" action="../functions/comments.php">
+                    <h5>Оставить отзыв о товаре</h5>
+                    <div class="mb-3">
+                        <label for="inputName" class="form-label">Ваше Имя</label>
+                        <input type="text" name="Comment[name]" class="form-control" id="inputName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label">Ваш E-mail</label>
+                        <input type="email" name="Comment[email]" class="form-control" id="inputEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputTextarea"  class="form-label">Текст отзыва</label>
+                        <textarea class="form-control" name="Comment[text]" id="inputTextarea" rows="3"></textarea>
+                    </div>
+                    <input type="hidden" name="Comment[good_id]" value="<?= $_GET['id']; ?>">
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form> 
+            </div>
+            
         </div>
     </div>
 
